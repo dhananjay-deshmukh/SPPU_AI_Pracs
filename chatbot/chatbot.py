@@ -38,6 +38,13 @@ def restaurant_chatbot(user_input):
 
 def main():
     nav = st.sidebar.radio("Navigate", ["Chat", "Add Questions"])
+    quit = st.sidebar.button("Quit")
+
+    if quit:
+        st.empty()
+        st.header("Thank you for using Restobot!")
+        st.stop()
+        
 
     if nav == "Chat":
         
@@ -53,9 +60,7 @@ def main():
             st.text("Bot: " + bot_response)
             st.text("___________________________")  # Separator line
 
-            if st.button("Quit", key ='quit'):
-                st.text("Thank you for using RestoBot")
-
+            
     elif nav == "Add Questions":
         add_question = st.text_input("Add keyword here", key = 'key')
         add_answer = st.text_input("Provide a response here", key='value')
